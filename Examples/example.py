@@ -26,7 +26,7 @@ class HelpViewer_UI(QtWidgets.QMainWindow):
         self._old_pos = None
         
         # help viewer module
-        self.help_viewer = help_viewer.HelpViewer(pdfjs_root_path=os.path.dirname(sys.argv[0]))
+        self.help_viewer = help_viewer.HelpViewer()
         self.helpviewer_frame.layout().addWidget(self.help_viewer)
 
         #
@@ -164,6 +164,7 @@ class HelpViewer_UI(QtWidgets.QMainWindow):
         res, message = self.help_viewer.load_pdf_file(pdf_address=pdf_path)
         if not res:
             self.show_alert_window(title='Error', message='Failed to load help file, please ensure right file format.', need_confirm=False, level=2)
+        
     
 
 
